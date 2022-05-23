@@ -30,3 +30,8 @@ code {
   border-top-right-radius: 4px !important;
   background: #ff191b !important;
 }
+.brand{
+  background: -webkit-linear-gradient(#972c30, #c73b3f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

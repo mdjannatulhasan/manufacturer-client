@@ -1,9 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AddAReview from "./Pages/AddAReview/AddAReview";
+import Blogs from "./Pages/Blogs/Blogs";
 import RequireAuth from "./Pages/Components/RequireAuth";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
+import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 import MyProfile from "./Pages/MyProfile/MyProfile";
 import NotFound from "./Pages/NotFound/NotFound";
 import Purchase from "./Pages/Purchase/Purchase";
@@ -44,6 +46,8 @@ function App() {
                     }
                 ></Route>
 
+                <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+                <Route path="/my-portfolio" element={<MyPortfolio></MyPortfolio>}></Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
         </div>
