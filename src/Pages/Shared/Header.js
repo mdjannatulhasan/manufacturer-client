@@ -32,7 +32,7 @@ const Header = () => {
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         {menuItems.map((item) => (
-                            <li>{item}</li>
+                            <li className="font-semibold hover:text-primary">{item}</li>
                         ))}
                     </ul>
                 </div>

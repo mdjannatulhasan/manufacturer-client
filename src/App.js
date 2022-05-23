@@ -10,6 +10,7 @@ import MyProfile from "./Pages/MyProfile/MyProfile";
 import NotFound from "./Pages/NotFound/NotFound";
 import Purchase from "./Pages/Purchase/Purchase";
 import Register from "./Pages/Register/Register";
+import Footer from "./Pages/Shared/Footer";
 import Header from "./Pages/Shared/Header";
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
                 <Route path="/my-portfolio" element={<MyPortfolio></MyPortfolio>}></Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
+            <Footer></Footer>
         </div>
     );
 }
