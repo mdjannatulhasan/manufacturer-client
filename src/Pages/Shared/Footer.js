@@ -7,8 +7,8 @@ const Footer = () => {
             <div className="bg-accent pt-16 pb-14">
                 <div className=" container">
                     <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 justify-between lg:gap-8 text-white text-center lg:text-left">
-                        <div className="space-y-5 max-w-sm mx-auto lg:ml-0">
-                            <Link to="/" className="text-white font-bold text-xl flex-col lg:flex-row space-x-3 items-center justify-center">
+                        <div className="space-y-5 max-w-[300px] mx-auto lg:mx-0">
+                            <Link to="/" className="text-white flex font-bold text-xl flex-col lg:flex-row space-x-3 items-center justify-center lg:justify-start">
                                 <figure>
                                     <img className="mx-auto mb-2 lg:mb-0" src="/icon.png" width="60" alt="" />
                                 </figure>
@@ -39,7 +39,7 @@ const Footer = () => {
                                 <div>
                                     <a className="hover:text-primary transition-colors" href="tel:O13482362323">
                                         <span className="text-[#605F61] mr-3">
-                                            <i class="fas fa-phone-alt"></i>
+                                            <i className="fas fa-phone-alt"></i>
                                         </span>
                                         O13482362323
                                     </a>
@@ -47,14 +47,14 @@ const Footer = () => {
                                 <div>
                                     <a className="hover:text-primary transition-colors transition" href="mailto:shahmdjhm@gmail.com">
                                         <span className="text-[#605F61] mr-3">
-                                            <i class="fas fa-envelope"></i>
+                                            <i className="fas fa-envelope"></i>
                                         </span>
                                         shahmdjhm@gmail.com
                                     </a>
                                 </div>
                                 <div to="/">
                                     <span className="text-[#605F61] mr-3">
-                                        <i class="fas fa-map-marker-alt"></i>
+                                        <i className="fas fa-map-marker-alt"></i>
                                     </span>
                                     Mohakhali, Dhaka, Bangladesh
                                 </div>
@@ -66,7 +66,7 @@ const Footer = () => {
                                 <div className="mx-auto">
                                     <Link className="flex items-center hover:text-primary transition-colors" to="/">
                                         <span className="text-primary mr-3 text-[7px]">
-                                            <i class="fas fa-square-full"></i>
+                                            <i className="fas fa-square-full"></i>
                                         </span>
                                         Some place
                                     </Link>
@@ -74,7 +74,7 @@ const Footer = () => {
                                 <div className="mx-auto">
                                     <Link className="flex items-center hover:text-primary transition-colors" to="/">
                                         <span className="text-primary mr-3 text-[7px]">
-                                            <i class="fas fa-square-full"></i>
+                                            <i className="fas fa-square-full"></i>
                                         </span>
                                         Some place
                                     </Link>
@@ -82,7 +82,7 @@ const Footer = () => {
                                 <div className="mx-auto">
                                     <Link className="flex items-center hover:text-primary transition-colors" to="/">
                                         <span className="text-primary mr-3 text-[7px]">
-                                            <i class="fas fa-square-full"></i>
+                                            <i className="fas fa-square-full"></i>
                                         </span>
                                         Some place
                                     </Link>

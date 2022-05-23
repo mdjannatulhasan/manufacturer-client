@@ -1,9 +1,7 @@
 import React from "react";
-import { getAuth } from "firebase/auth";
 import { Navigate, useLocation } from "react-router-dom";
-import app from "../../firebase.init";
+import auth from "../../firebase.init";
 
-const auth = getAuth(app);
 function RequireAuth({ children }) {
     let location = useLocation();
 
