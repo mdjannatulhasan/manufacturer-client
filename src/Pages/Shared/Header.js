@@ -22,13 +22,17 @@ const Header = () => {
                                 <li key={index}>{item}</li>
                             ))}
                             {user ? (
-                                <>
+                                <li>
                                     <span onClick={() => signOut(auth)}>Sign Out</span>
-                                </>
+                                </li>
                             ) : (
                                 <>
-                                    <Link to="/register">Register</Link>
-                                    <Link to="/login">Login</Link>
+                                    <li>
+                                        <Link to="/register">Register</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/login">Login</Link>
+                                    </li>
                                 </>
                             )}
                         </ul>
@@ -51,9 +55,14 @@ const Header = () => {
                             </li>
                         ))}
                         {user ? (
-                            <li className="font-semibold hover:text-primary">
-                                <span onClick={() => signOut(auth)}>Sign Out</span>
-                            </li>
+                            <>
+                                <li className="font-semibold hover:text-primary">
+                                    <span onClick={() => signOut(auth)}>Sign Out</span>
+                                </li>
+                                <li className="font-semibold hover:text-primary">
+                                    <Link to="/dashboard">Dashboard</Link>
+                                </li>
+                            </>
                         ) : (
                             <>
                                 <li className="font-semibold hover:text-primary">

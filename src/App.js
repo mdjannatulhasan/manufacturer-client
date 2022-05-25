@@ -15,6 +15,7 @@ import Header from "./Pages/Shared/Header";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import AddProduct from "./Pages/Product/AddProduct";
 
 function App() {
     return (
@@ -61,6 +62,14 @@ function App() {
 
                 <Route path="/blogs" element={<Blogs></Blogs>}></Route>
                 <Route path="/my-portfolio" element={<MyPortfolio></MyPortfolio>}></Route>
+                <Route
+                    path="/add-product"
+                    element={
+                        <RequireAuth>
+                            <AddProduct></AddProduct>
+                        </RequireAuth>
+                    }
+                ></Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
             <Footer></Footer>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
@@ -9,6 +9,9 @@ import Loading from "../Shared/Loading";
 const Login = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithEmailAndPassword, emailUser, emailUseroading, emailUserError] = useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "";
     const {
         register,
         handleSubmit,
@@ -28,7 +31,7 @@ const Login = () => {
     }
 
     if (user || emailUser) {
-        console.log(user);
+        navigate(from, { replace: true });
     }
     return (
         <div className="bg-slate-100">
