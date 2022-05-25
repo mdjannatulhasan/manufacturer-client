@@ -1,8 +1,12 @@
 import React from "react";
+import { signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const Header = () => {
-    const menuItems = [<Link to="/">Home</Link>, <Link to="/blogs">Blogs</Link>, <Link to="/my-portfolio">My Portfolio</Link>, <Link to="/register">Register</Link>, <Link to="/login">Login</Link>];
+    const [user, loading, error] = useAuthState(auth);
+    const menuItems = [<Link to="/">Home</Link>, <Link to="/blogs">Blogs</Link>, <Link to="/my-portfolio">My Portfolio</Link>];
     return (
         <header className="container">
             <div className="navbar bg-base-100">
@@ -17,6 +21,16 @@ const Header = () => {
                             {menuItems.map((item, index) => (
                                 <li key={index}>{item}</li>
                             ))}
+                            {user ? (
+                                <>
+                                    <span onClick={() => signOut(auth)}>Sign Out</span>
+                                </>
+                            ) : (
+                                <>
+                                    <Link to="/register">Register</Link>
+                                    <Link to="/login">Login</Link>
+                                </>
+                            )}
                         </ul>
                     </div>
                     <Link to="/" className="grow brand font-bold text-xl flex flex-row-reverse lg:flex-row lg:space-x-3 items-center text-right lg:text-left">
@@ -36,6 +50,20 @@ const Header = () => {
                                 {item}
                             </li>
                         ))}
+                        {user ? (
+                            <li className="font-semibold hover:text-primary">
+                                <span onClick={() => signOut(auth)}>Sign Out</span>
+                            </li>
+                        ) : (
+                            <>
+                                <li className="font-semibold hover:text-primary">
+                                    <Link to="/register">Register</Link>
+                                </li>
+                                <li className="font-semibold hover:text-primary">
+                                    <Link to="/login">Login</Link>
+                                </li>
+                            </>
+                        )}
                     </ul>
                 </div>
             </div>

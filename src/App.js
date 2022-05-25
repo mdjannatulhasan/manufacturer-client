@@ -12,6 +12,9 @@ import Purchase from "./Pages/Purchase/Purchase";
 import Register from "./Pages/Register/Register";
 import Footer from "./Pages/Shared/Footer";
 import Header from "./Pages/Shared/Header";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
     return (
@@ -19,6 +22,7 @@ function App() {
             <Header></Header>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
+                <Route path="/home" element={<Home></Home>}></Route>
                 <Route
                     path="/purchase"
                     element={
@@ -46,12 +50,21 @@ function App() {
                         </RequireAuth>
                     }
                 ></Route>
+                <Route
+                    path="/dashboard"
+                    element={
+                        <RequireAuth>
+                            <Dashboard></Dashboard>
+                        </RequireAuth>
+                    }
+                ></Route>
 
                 <Route path="/blogs" element={<Blogs></Blogs>}></Route>
                 <Route path="/my-portfolio" element={<MyPortfolio></MyPortfolio>}></Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
             <Footer></Footer>
+            <ToastContainer></ToastContainer>
         </div>
     );
 }
