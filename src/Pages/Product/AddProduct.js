@@ -1,16 +1,26 @@
+import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddProduct = () => {
     const {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {};
+    const onSubmit = async (data1) => {
+        const { data } = await axios.post(`${process.env.REACT_APP_SERVER_URL}/add-product`, data1);
+        console.log(data);
+
+        if (data?.success) {
+            toast.success("Product Added Successfully");
+            reset();
+        }
+    };
     return (
         <div className="bg-slate-100">
             <div className="container text-center pt-12 pb-20">
@@ -20,14 +30,14 @@ const AddProduct = () => {
                         <input className="input input-bordered rounded-none w-full" placeholder="Product Name" {...register("name", { required: true })} />
                         {errors.name && <span className="text-rose-600">Product Name is required</span>}
 
-                        <input className="input input-bordered rounded-none w-full" placeholder="Minimum Order Quantity" {...register("orderQuantity", { required: true })} />
+                        <input type="number" className="input input-bordered rounded-none w-full" placeholder="Minimum Order Quantity" {...register("orderQuantity", { required: true })} />
                         {errors.orderQuantity && <span className="text-rose-600">Minimum order quantity is required</span>}
                         {errors.name && <span className="text-rose-600">Product Name is required</span>}
 
-                        <input className="input input-bordered rounded-none w-full" placeholder="Product Stock" {...register("stock", { required: true })} />
+                        <input type="number" className="input input-bordered rounded-none w-full" placeholder="Product Stock" {...register("stock", { required: true })} />
                         {errors.stock && <span className="text-rose-600">Stock is required</span>}
 
-                        <input className="input input-bordered rounded-none w-full" placeholder="Product Price (Single Unit)" {...register("price", { required: true })} />
+                        <input type="number" className="input input-bordered rounded-none w-full" placeholder="Product Price (Single Unit)" {...register("price", { required: true })} />
                         {errors.price && <span className="text-rose-600">Price is required</span>}
 
                         <input className="input input-bordered rounded-none w-full" placeholder="Product Image URL" {...register("image", { required: true })} />

@@ -9,9 +9,10 @@ import PrimaryButton from "../Components/PrimaryButton";
 
 const HomeBanner = () => {
     return (
-        <div>
+        <div className="home-banner">
             <Swiper
                 // install Swiper modules
+                className="mySwiper1"
                 modules={[Pagination, Autoplay, EffectFade]}
                 spaceBetween={50}
                 slidesPerView={1}

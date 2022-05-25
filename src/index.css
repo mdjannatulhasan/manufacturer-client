@@ -15,7 +15,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.swiper-pagination-bullet{
+.home-banner .swiper-pagination-bullet{
     width: 8px !important;
     height: 8px !important;
     display: inline-block !important;
@@ -23,7 +23,7 @@ code {
     background: #fff !important;
     opacity: var(--swiper-pagination-bullet-inactive-opacity, 1) !important;
 }
-.swiper-pagination-bullet-active {
+.home-banner .swiper-pagination-bullet-active {
   opacity: var(--swiper-pagination-bullet-opacity, 1) !important;
   height: 30px !important;
   border-top-left-radius: 4px !important;
@@ -34,4 +34,30 @@ code {
   background: -webkit-linear-gradient(#972c30, #c73b3f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.home-company .swiper-pagination-bullet{
+  width: 12px !important;
+  height: 5px !important;
+  display: inline-block !important;
+  border-radius: 0 !important;
+  background: rgb(166, 166, 166) !important;
+  opacity: var(--swiper-pagination-bullet-inactive-opacity, 1) !important;
+
+transition: width 300ms linear;
+}
+.home-company .swiper-pagination-bullet-active {
+opacity: var(--swiper-pagination-bullet-opacity, 1) !important;
+width: 30px !important;
+background: #cc0003 !important;
+transition: width 300ms linear;
+}
+.home-company .swiper-horizontal>.home-company .swiper-pagination-bullets, .home-company 
+.swiper-pagination-bullets.swiper-pagination-horizontal, .home-company .swiper-pagination-custom, 
+.home-company .swiper-pagination-fraction {
+  bottom: 20px;
+  left: 36px;
+  width: 100%;
+}
+.home-company .swiper-pagination {
+  text-align: left;
 }
