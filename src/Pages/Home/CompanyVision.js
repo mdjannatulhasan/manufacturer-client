@@ -26,7 +26,7 @@ const CompanyVision = () => {
                         <PrimaryButton>Read More About Us</PrimaryButton>
                     </div>
                     <div className="col-span-2 home-company">
-                        <div className="bg-slate-100">
+                        <div className="bg-white">
                             <Swiper
                                 // install Swiper modules
                                 className="mySwiper2"
@@ -39,7 +39,7 @@ const CompanyVision = () => {
                                 scrollbar={{ draggable: true }}
                             >
                                 <SwiperSlide>
-                                    <div className="py-14 px-5 bg-slate-100">
+                                    <div className="py-14 px-5 bg-white shadow-sm">
                                         <div className="container space-y-5">
                                             <h4 className="lg:text-2xl text-xl font-bold text-accent flex items-center">
                                                 <span className="text-primary mr-3 text-[7px]">
@@ -48,7 +48,6 @@ const CompanyVision = () => {
                                                 Our Mission
                                             </h4>
                                             <p>
-                                                {" "}
                                                 As a provider for complex tools, we can procure, manufacture and assemble tailor made solutions. Customers approach us because they know that we can
                                                 handle and machine.
                                             </p>
@@ -56,7 +55,7 @@ const CompanyVision = () => {
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide>
-                                    <div className="py-14 px-5 bg-slate-100">
+                                    <div className="py-14 px-5 bg-white">
                                         <div className="container space-y-5">
                                             <h4 className="lg:text-2xl text-xl font-bold text-accent flex items-center">
                                                 <span className="text-primary mr-3 text-[7px]">

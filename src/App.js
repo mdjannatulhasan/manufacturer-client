@@ -32,6 +32,14 @@ function App() {
                         </RequireAuth>
                     }
                 ></Route>
+                <Route
+                    path="/purchase/:_id"
+                    element={
+                        <RequireAuth>
+                            <Purchase></Purchase>
+                        </RequireAuth>
+                    }
+                ></Route>
                 <Route path="/my-orders" element={<Home></Home>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route
