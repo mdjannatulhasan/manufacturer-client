@@ -16,6 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import AddProduct from "./Pages/Product/AddProduct";
+import AllProducts from "./Pages/Purchase/AllProducts";
 
 function App() {
     return (
@@ -28,7 +29,7 @@ function App() {
                     path="/purchase"
                     element={
                         <RequireAuth>
-                            <Purchase></Purchase>
+                            <AllProducts></AllProducts>
                         </RequireAuth>
                     }
                 ></Route>
