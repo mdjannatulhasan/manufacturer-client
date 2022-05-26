@@ -41,25 +41,11 @@ function App() {
                         </RequireAuth>
                     }
                 ></Route>
-                <Route path="/my-orders" element={<Home></Home>}></Route>
+
                 <Route path="/login" element={<Login></Login>}></Route>
-                <Route
-                    path="/add-review"
-                    element={
-                        <RequireAuth>
-                            <AddAReview></AddAReview>
-                        </RequireAuth>
-                    }
-                ></Route>
+
                 <Route path="/register" element={<Register></Register>}></Route>
-                <Route
-                    path="/my-profile"
-                    element={
-                        <RequireAuth>
-                            <MyProfile></MyProfile>
-                        </RequireAuth>
-                    }
-                ></Route>
+
                 <Route
                     path="/dashboard"
                     element={
@@ -67,7 +53,25 @@ function App() {
                             <Dashboard></Dashboard>
                         </RequireAuth>
                     }
-                ></Route>
+                >
+                    <Route path="my-orders" element={<Home></Home>}></Route>
+                    <Route
+                        path="my-profile"
+                        element={
+                            <RequireAuth>
+                                <MyProfile></MyProfile>
+                            </RequireAuth>
+                        }
+                    ></Route>
+                    <Route
+                        path="add-review"
+                        element={
+                            <RequireAuth>
+                                <AddAReview></AddAReview>
+                            </RequireAuth>
+                        }
+                    ></Route>
+                </Route>
 
                 <Route path="/blogs" element={<Blogs></Blogs>}></Route>
                 <Route path="/my-portfolio" element={<MyPortfolio></MyPortfolio>}></Route>
