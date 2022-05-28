@@ -13,7 +13,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    const [token] = useToken(user || emailUser);
+    const [token, tokenLoading] = useToken(user || emailUser);
     const {
         register,
         handleSubmit,
@@ -24,7 +24,7 @@ const Login = () => {
     const onSubmit = (data) => {
         signInWithEmailAndPassword(data.email, data.password);
     };
-    if (loading || emailUseroading) {
+    if (loading || emailUseroading || tokenLoading) {
         return <Loading></Loading>;
     }
 
@@ -52,7 +52,7 @@ const Login = () => {
                         Forgot password? <span className="hover:cursor-pointer hover:underline text-blue-800 mt-3 inline-block">Click here to reset passsword.</span>
                     </p>
                     <p>
-                        New here?{" "}
+                        New here?
                         <Link to="/register" className="hover:cursor-pointer hover:underline text-blue-800 mt-3 inline-block">
                             Please Register
                         </Link>
