@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import AddProduct from "./Pages/Product/AddProduct";
 import AllProducts from "./Pages/Purchase/AllProducts";
+import MyOrders from "./Pages/Dashboard/MyOrders";
 
 function App() {
     return (
@@ -54,9 +55,9 @@ function App() {
                         </RequireAuth>
                     }
                 >
-                    <Route path="my-orders" element={<Home></Home>}></Route>
+                    <Route path="my-orders" element={<MyOrders></MyOrders>}></Route>
                     <Route
-                        path="my-profile"
+                        path=""
                         element={
                             <RequireAuth>
                                 <MyProfile></MyProfile>
