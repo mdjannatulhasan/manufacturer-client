@@ -10,14 +10,22 @@ const MyOrders = () => {
     const [orderId, SetOrderId] = useState("");
     useEffect(() => {
         const getOrders = async () => {
-            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/myorders?email=${user?.email}`);
+            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/myorders?email=${user?.email}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                },
+            });
             SetOrders(data);
         };
         getOrders();
     }, []);
     const handleDelete = (_id) => {
         const postUserInfo = async () => {
-            const { data } = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/delete/${orderId}`);
+            const { data } = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/delete/${orderId}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                },
+            });
             const newOrders = orders.filter((order) => order._id !== _id);
             SetOrders(newOrders);
             if (data?.acknowledged && data?.deletedCount) {

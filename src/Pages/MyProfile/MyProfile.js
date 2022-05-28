@@ -20,7 +20,11 @@ const MyProfile = () => {
     });
     useEffect(() => {
         const fetchUserInfo = async () => {
-            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user?email=${user.email}`);
+            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user?email=${user.email}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                },
+            });
             if (data) {
                 setUserInfo(data);
             }
@@ -48,7 +52,11 @@ const MyProfile = () => {
             const newUserInfo = { email: user?.email, ...rest };
             setUserInfo(newUserInfo);
             console.log(userInfo);
-            const { data } = await axios.post(`${process.env.REACT_APP_SERVER_URL}/update-user`, newUserInfo);
+            const { data } = await axios.post(`${process.env.REACT_APP_SERVER_URL}/update-user`, newUserInfo, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                },
+            });
             if (data?.modifiedCount >= 1) {
                 toast.success("Data updated successfully");
             } else if (data?.modifiedCount == 0) {

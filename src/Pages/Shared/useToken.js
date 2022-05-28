@@ -12,8 +12,8 @@ const useToken = (user) => {
                 const { data } = await axios.put(`${process.env.REACT_APP_SERVER_URL}/user/${email}`);
                 console.log(data);
                 const accessToken = data.token;
-                setToken(accessToken);
                 localStorage.setItem("accessToken", accessToken);
+                setToken(accessToken);
             };
             putUser();
         }

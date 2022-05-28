@@ -16,11 +16,10 @@ const AddAReview = () => {
                 },
             });
             SetReviews(data);
-            console.log(data);
         };
         getReviews();
     }, []);
-    console.log(user);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const review = {
@@ -42,7 +41,6 @@ const AddAReview = () => {
             } else {
                 toast.error("There's an error");
             }
-            console.log(reviews);
         };
         const newReviews = [...reviews, review];
         SetReviews(newReviews);
