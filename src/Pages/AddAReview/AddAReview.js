@@ -62,7 +62,7 @@ const AddAReview = () => {
             <div className="container">
                 <div className="flex justify-between items-center">
                     <h2 className="text-2xl font-semibold mb-4">My Reviews</h2>
-                    <label for="my-modal-3" className="mb-4 btn modal-button text-white bg-slate-600">
+                    <label htmlFor="my-modal-3" className="mb-4 btn modal-button text-white bg-slate-600">
                         Add a review
                     </label>
                 </div>
@@ -82,7 +82,7 @@ const AddAReview = () => {
                 <input type="checkbox" id="my-modal-3" className="modal-toggle" />
                 <div className="modal">
                     <div className="modal-box relative">
-                        <label for="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">
+                        <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">
                             ✕
                         </label>
                         <h3>Add a review</h3>

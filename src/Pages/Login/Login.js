@@ -43,7 +43,7 @@ const Login = () => {
                     <form className="grid grid-cols-1 mt-5 space-y-3 " onSubmit={handleSubmit(onSubmit)}>
                         <input className="input input-bordered rounded-none w-full" placeholder="Email" {...register("email", { required: true })} />
                         {errors.email && <span className="text-rose-600">Email is required</span>}
-                        <input className="input input-bordered rounded-none w-full" placeholder="Password" {...register("password", { required: true })} />
+                        <input className="input input-bordered rounded-none w-full" type="password" placeholder="Password" {...register("password", { required: true })} />
                         {errors.password && <span className="text-rose-600">Password is required</span>}
 
                         <input className="bg-primary hover:cursor-pointer text-white font-semibold py-2" type="submit" value="Login" />

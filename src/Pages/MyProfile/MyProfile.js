@@ -192,7 +192,7 @@ const MyProfile = () => {
                                 id="PhotoUrl"
                                 className="border px-3 py-1 bg-transparent col-span-9 w-full"
                                 type="photoURL"
-                                value={photoURL || user?.photoURL}
+                                value={photoURL}
                                 onChange={(e) => setPhotoURL(e.target.value)}
                                 placeholder="Photo URL"
                                 name="PhotoUrl"
