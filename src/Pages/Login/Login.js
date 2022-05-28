@@ -5,13 +5,15 @@ import auth from "../../firebase.init";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import Loading from "../Shared/Loading";
+import useToken from "../Shared/useToken";
 
 const Login = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithEmailAndPassword, emailUser, emailUseroading, emailUserError] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
     const location = useLocation();
-    let from = location.state?.from?.pathname || "";
+    let from = location.state?.from?.pathname || "/";
+    const [token] = useToken(user || emailUser);
     const {
         register,
         handleSubmit,
@@ -30,7 +32,7 @@ const Login = () => {
         toast.error(emailUserError?.message);
     }
 
-    if (user || emailUser) {
+    if (token) {
         navigate(from, { replace: true });
     }
     return (

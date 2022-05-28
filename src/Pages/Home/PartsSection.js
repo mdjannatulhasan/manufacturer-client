@@ -32,6 +32,23 @@ const PartsSection = () => {
                                 speed={800}
                                 pagination={{ clickable: true }}
                                 scrollbar={{ draggable: true }}
+                                breakpoints={{
+                                    // when window width is >= 320px
+                                    420: {
+                                        slidesPerView: 1,
+                                        spaceBetween: 20,
+                                    },
+                                    // when window width is >= 480px
+                                    780: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 30,
+                                    },
+                                    // when window width is >= 640px
+                                    980: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 40,
+                                    },
+                                }}
                             >
                                 {reversedProducts.map((product) => (
                                     <SwiperSlide key={product._id}>

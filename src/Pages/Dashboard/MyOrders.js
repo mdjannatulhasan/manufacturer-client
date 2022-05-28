@@ -75,16 +75,16 @@ const MyOrders = () => {
                         </tbody>
                     </table>
 
-                    <input type="checkbox" id="deleteItem" class="modal-toggle" />
-                    <div class="modal">
-                        <div class="modal-box">
-                            <h3 class="font-bold text-lg">Are you sure you want to delete order:</h3>
-                            <p class="py-4">{orderId}</p>
-                            <div class="modal-action">
-                                <label for="deleteItem" onClick={() => handleDelete(orderId)} class="btn">
+                    <input type="checkbox" id="deleteItem" className="modal-toggle" />
+                    <div className="modal">
+                        <div className="modal-box">
+                            <h3 className="font-bold text-lg">Are you sure you want to delete order:</h3>
+                            <p className="py-4">{orderId}</p>
+                            <div className="modal-action">
+                                <label for="deleteItem" onClick={() => handleDelete(orderId)} className="btn">
                                     Yes
                                 </label>
-                                <label for="deleteItem" class="btn">
+                                <label for="deleteItem" className="btn">
                                     No
                                 </label>
                             </div>

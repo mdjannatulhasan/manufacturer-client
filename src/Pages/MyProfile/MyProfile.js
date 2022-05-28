@@ -444,20 +444,20 @@ const MyProfile = () => {
                     <div className="text-2xl pt-4 space-x-4">
                         {fb ? (
                             <a href={fb}>
-                                <i class="fab fa-facebook-square text-blue-500"></i>
+                                <i className="fab fa-facebook-square text-blue-500"></i>
                             </a>
                         ) : (
                             ""
                         )}
                         {instagram ? (
                             <a href={instagram}>
-                                <i class="fab fa-instagram-square text-rose-800"></i>
+                                <i className="fab fa-instagram-square text-rose-800"></i>
                             </a>
                         ) : (
                             ""
                         )}
                         <a href={linkedin}>
-                            <i class="fab fa-linkedin-in text-blue-800"></i>
+                            <i className="fab fa-linkedin-in text-blue-800"></i>
                         </a>
                     </div>
                     <input type="checkbox" id="social" className="modal-toggle" />

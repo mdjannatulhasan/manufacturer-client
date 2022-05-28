@@ -5,11 +5,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
+import useToken from "../Shared/useToken";
 
 const Register = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [createUserWithEmailAndPassword, emailUser, emailUseroading, emailUserError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+    const [token] = useToken(user || emailUser);
+
     const navigate = useNavigate();
 
     const [pwMismatch, setPwMismatch] = useState(false);
@@ -26,10 +30,9 @@ const Register = () => {
         }
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        console.log("Updated");
-        console.log(user);
     };
-    if (loading || emailUseroading) {
+
+    if (loading || emailUseroading || updating) {
         return <Loading></Loading>;
     }
 
@@ -37,8 +40,7 @@ const Register = () => {
         toast.error(emailUserError?.message);
     }
 
-    if (user || emailUser) {
-        console.log(user);
+    if (token) {
         navigate("/home");
     }
     return (

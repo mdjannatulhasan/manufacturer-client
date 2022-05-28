@@ -10,12 +10,17 @@ const AddAReview = () => {
     const [reviews, SetReviews] = useState([]);
     useEffect(() => {
         const getReviews = async () => {
-            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/myreviews?email=${user?.email}`);
+            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/myreviews?email=${user?.email}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                },
+            });
             SetReviews(data);
             console.log(data);
         };
         getReviews();
     }, []);
+    console.log(user);
     const handleSubmit = (e) => {
         e.preventDefault();
         const review = {
@@ -23,9 +28,14 @@ const AddAReview = () => {
             comment: e.target.comment.value,
             email: user?.email,
             name: user?.displayName,
+            photoURL: user?.photoURL,
         };
         const postUserInfo = async () => {
-            const { data } = await axios.post(`${process.env.REACT_APP_SERVER_URL}/addreview`, review);
+            const { data } = await axios.post(`${process.env.REACT_APP_SERVER_URL}/addreview`, review, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                },
+            });
 
             if (data?.success) {
                 toast.info("Review Added successfully");
@@ -41,10 +51,10 @@ const AddAReview = () => {
     const starPrint = (rating) => {
         let ratingArray = [];
         for (let i = 0; i < rating; i++) {
-            ratingArray[i] = <i class="text-primary fas fa-star"></i>;
+            ratingArray[i] = <i className="text-primary fas fa-star"></i>;
         }
         for (let i = 1; i <= 5 - rating; i++) {
-            ratingArray[5 - i] = <i class="fas fa-star"></i>;
+            ratingArray[5 - i] = <i className="fas fa-star"></i>;
         }
         console.log(ratingArray);
         return ratingArray;
@@ -54,7 +64,7 @@ const AddAReview = () => {
             <div className="container">
                 <div className="flex justify-between items-center">
                     <h2 className="text-2xl font-semibold mb-4">My Reviews</h2>
-                    <label for="my-modal-3" class="mb-4 btn modal-button text-white bg-slate-600">
+                    <label for="my-modal-3" className="mb-4 btn modal-button text-white bg-slate-600">
                         Add a review
                     </label>
                 </div>
@@ -63,18 +73,18 @@ const AddAReview = () => {
                     {reviews?.map(({ rating, comment, _id, name }) => (
                         <div className="shadow-custom p-7">
                             <div id={_id} className="mb-3">
-                                {starPrint(rating).map((star) => (
-                                    <span>{star}</span>
+                                {starPrint(rating).map((star, index) => (
+                                    <span key={index}>{star}</span>
                                 ))}
                             </div>
                             <div>{comment}</div>
                         </div>
                     ))}
                 </div>
-                <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-                <div class="modal">
-                    <div class="modal-box relative">
-                        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">
+                <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+                <div className="modal">
+                    <div className="modal-box relative">
+                        <label for="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">
                             ✕
                         </label>
                         <h3>Add a review</h3>
