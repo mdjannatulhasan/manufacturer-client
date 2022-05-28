@@ -1,7 +1,17 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const HomeReviewSec = () => {
-    return <div>Review</div>;
+    const [reviews, SetReviews] = useState([]);
+    useEffect(() => {
+        const getReviews = async () => {
+            const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/reviews`);
+            SetReviews(data);
+            console.log(data);
+        };
+        getReviews();
+    }, []);
+    return <section>{reviews.length}</section>;
 };
 
 export default HomeReviewSec;

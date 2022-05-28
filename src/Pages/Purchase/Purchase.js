@@ -62,9 +62,9 @@ function Purchase() {
             });
 
             if (data.success) {
-                toast.success("Product Updated");
+                toast.success("Order Placed");
             } else {
-                toast.error("Failed to update product");
+                toast.error("Failed to place order");
             }
         };
         placeOrder();
@@ -218,7 +218,7 @@ function Purchase() {
                                     <input
                                         className="border px-7 py-2 bg-primary cursor-pointer disabled:bg-slate-300 text-white font-bold disabled:text-accent disabled:cursor-not-allowed"
                                         type="submit"
-                                        value="Update Product"
+                                        value="Place Order"
                                         disabled={disableSubmit}
                                     />
                                 </form>

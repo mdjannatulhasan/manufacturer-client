@@ -85,3 +85,6 @@ transition: width 300ms linear;
 .profile-wrapper:hover #editProfile{
   display: block;
 }
+.table td{
+  padding: 8px 15px;
+}
